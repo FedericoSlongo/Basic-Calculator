@@ -35,6 +35,10 @@ namespace Basic_Calculator
                 case "^3":
                     soluction = (first + second) * (first + second) * (first + second);
                     break;
+                case "//":
+                    delta = first +second;
+                    soluction = Math.Sqrt(delta);
+                    break;
                 default:
                     Console.WriteLine("The operator isn't correct :/");
                 break;
