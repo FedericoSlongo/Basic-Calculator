@@ -1,39 +1,45 @@
-﻿using System;
+using System;
 
-namespace Calcolatrice
+namespace Basic_Calculator
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Double first, second, soluction = 0; 
-            String operator;
+            Double first, second, delta, soluction = 0;
+            string oper;
             Console.Write("Insert the first number ");
             first = Convert.ToDouble(Console.ReadLine());
             Console.Write("Insert the second number ");
             second = Convert.ToDouble(Console.ReadLine());
             Console.Write("Insert the operator to use ");
-            operator = Console.ReadLine();
+            oper = Console.ReadLine();
 
-            switch (operator)
+            switch (oper)
             {
                 case "-":
                     soluction = first - second;
-                    break;
+                break;
                 case "*":
                     soluction = first * second;
-                    break;
+                break;
                 case "/":
                     soluction = first / second;
-                    break;
+                break;
                 case "+":
                     soluction = first + second;
+                break;
+                case "^2":
+                    soluction = (first + second) * (first + second);
+                    break;
+                case "^3":
+                    soluction = (first + second) * (first + second) * (first + second);
                     break;
                 default:
-                    Console.WriteLine("L'operatore inserito non è corretto :/");
-                    break;
+                    Console.WriteLine("The operator isn't correct :/");
+                break;
             }
-            Console.WriteLine($"La soluzione è {soluction}");
+            Console.WriteLine($"The soluction is {soluction}");
         }
     }
 }
