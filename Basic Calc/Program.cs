@@ -8,7 +8,7 @@ namespace Basic_Calculator
         {
             double first, second, delta, soluction = 0;
             string oper;
-            bool try_pep=false,switch_=false;
+            bool try_pep = false, switch_ = false, second_cycle = false;
             do
             {
                 if (try_pep)
@@ -66,11 +66,15 @@ namespace Basic_Calculator
                         switch_ = false;
                         break;
                     default:
-                        Console.WriteLine("The operator isn't correct :/");
-                        switch_ = true;
+                        if (!second_cycle)
+                        {
+                            Console.WriteLine("The operator isn't correct :/");
+                            switch_ = true;
+                        }
                         Console.Write("Insert the operator to use ");
                         oper = Console.ReadLine();
-                        break;
+                        second_cycle = true;
+                        break; 
                 }
             } while (switch_);
 
