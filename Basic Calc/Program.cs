@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Basic_Calculator
 {
@@ -8,7 +8,7 @@ namespace Basic_Calculator
         {
             double first, second, delta, soluction = 0;
             string oper;
-            bool try_pep=false;
+            bool try_pep=false,switch_=false;
             do
             {
                 if (try_pep)
@@ -32,34 +32,48 @@ namespace Basic_Calculator
             Console.Write("Insert the operator to use ");
             oper = Console.ReadLine();
 
-            switch (oper)
+            do
             {
-                case "-":
-                    soluction = first - second;
-                    break;
-                case "*":
-                    soluction = first * second;
-                    break;
-                case "/":
-                    soluction = first / second;
-                    break;
-                case "+":
-                    soluction = first + second;
-                    break;
-                case "^2":
-                    soluction = Math.Pow(first + second,2);
-                    break;
-                case "^3":
-                    soluction = Math.Pow(first + second, 3);
-                    break;
-                case "//":
-                    delta = first + second;
-                    soluction = Math.Sqrt(delta);
-                    break;
-                default:
-                    Console.WriteLine("The operator isn't correct :/");
-                    break;
-            }
+                switch (oper)
+                {
+                    case "-":
+                        soluction = first - second;
+                        switch_ = false;
+                        break;
+                    case "*":
+                        soluction = first * second;
+                        switch_ = false;
+                        break;
+                    case "/":
+                        soluction = first / second;
+                        switch_ = false;
+                        break;
+                    case "+":
+                        soluction = first + second;
+                        switch_ = false;
+                        break;
+                    case "^2":
+                        soluction = Math.Pow(first + second, 2);
+                        switch_ = false;
+                        break;
+                    case "^3":
+                        soluction = Math.Pow(first + second, 3);
+                        switch_ = false;
+                        break;
+                    case "//":
+                        delta = first + second;
+                        soluction = Math.Sqrt(delta);
+                        switch_ = false;
+                        break;
+                    default:
+                        Console.WriteLine("The operator isn't correct :/");
+                        switch_ = true;
+                        Console.Write("Insert the operator to use ");
+                        oper = Console.ReadLine();
+                        break;
+                }
+            } while (switch_);
+
             Console.WriteLine($"The soluction is {soluction}");
         }
     }
