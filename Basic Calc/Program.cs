@@ -65,6 +65,27 @@ namespace Basic_Calculator
                         soluction = Math.Sqrt(delta);
                         switch_ = false;
                         break;
+                    case "average"
+                        int Voto = 1, Voto_Finale, Voto_temp = 0, cicli= 0;
+                        bool insert_error = false;
+            do
+            {
+                Console.Write("Insert the number ");
+                do
+                {
+                    if (insert_error)
+                    {
+                        Console.WriteLine("The inserted number isn't valid retry");
+                    }
+                    Voto_temp = Voto_temp + Voto;
+                } while (insert_error = !int.TryParse(Console.ReadLine(),out Voto));
+
+                Voto_Finale = Voto_temp / cicli;
+                Console.WriteLine($"You inserted {cicli} numbers");
+                Console.WriteLine($"The average is {Voto_Finale}");
+                cicli++;
+            } while (!(Voto == 0));
+                        break;
                     default:
                         if (!second_cycle)
                         {
