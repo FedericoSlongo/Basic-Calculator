@@ -8,7 +8,7 @@ namespace Basic_Calculator
         {
             double first, second, delta, soluction = 0;
             string oper;
-            bool try_pep = false, switch_ = false, second_cycle = false;
+            bool try_pep = false, switch_ = false, second_cycle = false, average = false;
             do
             {
                 if (try_pep)
@@ -65,7 +65,7 @@ namespace Basic_Calculator
                         soluction = Math.Sqrt(delta);
                         switch_ = false;
                         break;
-                    case "average"
+                    case "average":
                         int Voto = 1, Voto_Finale, Voto_temp = 0, cicli= 0;
                         bool insert_error = false;
             do
@@ -80,11 +80,13 @@ namespace Basic_Calculator
                     Voto_temp = Voto_temp + Voto;
                 } while (insert_error = !int.TryParse(Console.ReadLine(),out Voto));
 
-                Voto_Finale = Voto_temp / cicli;
-                Console.WriteLine($"You inserted {cicli} numbers");
-                Console.WriteLine($"The average is {Voto_Finale}");
                 cicli++;
             } while (!(Voto == 0));
+
+                        Voto_Finale = Voto_temp / cicli;
+                        Console.WriteLine($"You inserted {cicli-1} numbers");
+                        Console.WriteLine($"The average is {Voto_Finale}");
+                        average = true;
                         break;
                     default:
                         if (!second_cycle)
@@ -99,7 +101,10 @@ namespace Basic_Calculator
                 }
             } while (switch_);
 
-            Console.WriteLine($"The soluction is {soluction}");
+            if (!average)
+            {
+                Console.WriteLine($"The soluction is {soluction}");
+            }
         }
     }
 }
